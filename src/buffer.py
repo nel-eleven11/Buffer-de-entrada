@@ -44,6 +44,7 @@ def main():
 
     while lexema != "eof":
         buffer = cargar_buffer(entrada, inicio, tamano_buffer)
+        print(buffer)
         lexema, avance = procesar_buffer(lexema, buffer)
 
         inicio += avance

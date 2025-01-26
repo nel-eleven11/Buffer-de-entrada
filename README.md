@@ -12,3 +12,6 @@ En el código presente hay 3 funciones:
 - main: Aquí se inicializan las variables principales, se usa el while para poder analizar todos los caracteres de la entrada, primero se carga el buffer, luego se procesa hasta que ya no haya generado ningún lexema, el avance hecho se añade a inicio para que se carge el buffer desde el siguiente caracter del último cargado anteriormente.
 
 
+# Video
+
+https://youtu.be/1eJDGJKNOXs
