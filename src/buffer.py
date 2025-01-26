@@ -10,7 +10,7 @@ Diego Linares 221256
 
 
 # Se carga el buffer
-def cargar_buffer(entrada: list[str], inicio: int, tamano_buffer: int) -> (list[str], int):
+def cargar_buffer(entrada: list[str], inicio: int, tamano_buffer: int) -> (list[str]):
     buffer: list[str] = entrada[inicio:inicio + tamano_buffer]
     if len(buffer) < tamano_buffer:
         buffer.append("eof")
@@ -23,7 +23,7 @@ def procesar_buffer(lexema, buffer):
         avance += 1
         if buffer[i] == "eof":
             print("Lexema procesado: " + lexema)
-            return None, avance
+            return lexema, avance
         elif buffer[i] == " ":
             print("Lexema procesado: " + lexema)
             lexema = ""
@@ -32,21 +32,19 @@ def procesar_buffer(lexema, buffer):
 
     return lexema, avance
 
-# Función principal
+
 def main():
     inicio = 0
     avance = 0
     tamano_buffer = 10
-    parsing = True
     lexema = ""
 
     entrada = list("Esto es un ejemplo de entrada con eof")
     print(len(entrada))
-    while parsing:
+
+    while lexema != "eof":
         buffer = cargar_buffer(entrada, inicio, tamano_buffer)
         lexema, avance = procesar_buffer(lexema, buffer)
-        if lexema is None:
-            break
 
         inicio += avance
 
