@@ -5,20 +5,19 @@ Integrantes del grupo:
 Nelson García 22434
 Joaquín Puente 22296
 Ricardo Chuy 221007
-Diego Linares 22
+Diego Linares 221256
 """
 
 
-# Código base para iniciar
+# Se carga el buffer
 def cargar_buffer(entrada: list[str], inicio: int, tamano_buffer: int) -> (list[str], int):
     buffer: list[str] = entrada[inicio:inicio + tamano_buffer]
     if len(buffer) < tamano_buffer:
         buffer.append("eof")
     return buffer
 
-
+# Procesar y extraer lexemas del buffer
 def procesar_buffer(lexema, buffer):
-    # Procesar y extraer lexemas del buffer
     avance: int = 0
     for i in range(len(buffer)):
         avance += 1
@@ -33,7 +32,7 @@ def procesar_buffer(lexema, buffer):
 
     return lexema, avance
 
-
+# Función principal
 def main():
     inicio = 0
     avance = 0
