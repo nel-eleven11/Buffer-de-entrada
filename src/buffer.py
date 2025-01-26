@@ -16,6 +16,7 @@ def cargar_buffer(entrada, inicio, tamano_buffer):
   return buffer
 
 def procesar_buffer(buffer, avance, lexema):
+    avance = 0
     
     # Procesar y extraer lexemas del buffer
     for i in range(len(buffer)):
@@ -47,5 +48,5 @@ while ultimo_lex != "eof":
 
   buffer = cargar_buffer(entrada, inicio, tamano_buffer)
   print(buffer)
-  ultimo_lex, inicio = procesar_buffer(buffer, avance, ultimo_lex)
-  avance = inicio
+  ultimo_lex, avance = procesar_buffer(buffer, avance, ultimo_lex)
+  inicio += avance
