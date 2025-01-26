@@ -10,10 +10,11 @@ Diego Linares 22
 
 # Código base para iniciar
 def cargar_buffer(entrada, inicio, tamano_buffer):
-  buffer = entrada[inicio:inicio + tamano_buffer]
-  if len(buffer) < tamano_buffer:
-    buffer.append("eof")
-  return buffer
+	buffer = entrada[inicio:inicio + tamano_buffer]
+	if len(buffer) < tamano_buffer:
+		buffer.append("eof")
+		avance += len(buffer)    
+	return buffer
 
 def procesar_buffer(buffer):
     # Procesar y extraer lexemas del buffer
@@ -26,13 +27,17 @@ def procesar_buffer(buffer):
            lexema = ""
         else:
             lexema += buffer[i]
-        
-    
 
-entrada = list("Esto es un ejemplo de entrada con eof")
+def main ():
+    entrada = list("Esto es un ejemplo de entrada con eof")
+    print(len(entrada))
+    buffer = cargar_buffer(entrada, inicio, tamano_buffer)
+    print("Buffer cargado: " + str(buffer))
+    procesar_buffer(buffer)
+    inicio = avance
+        
 inicio = 0
 avance = 0
 tamano_buffer = 10
-buffer = cargar_buffer(entrada, inicio, tamano_buffer)
-print(buffer)
-procesar_buffer(buffer)
+
+main()
