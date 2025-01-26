@@ -16,11 +16,23 @@ def cargar_buffer(entrada, inicio, tamano_buffer):
   return buffer
 
 def procesar_buffer(buffer):
-  # Procesar y extraer lexemas del buffer
-  pass
+    # Procesar y extraer lexemas del buffer
+    lexema = ""
+    for i in range(len(buffer)):
+        if buffer[i] == "eof":
+            break
+        elif buffer[i] == " ":
+           print("Lexema procesado: " + lexema)
+           lexema = ""
+        else:
+            lexema += buffer[i]
+        
+    
 
-entrada = list("Esto es un ejemplo eof")
+entrada = list("Esto es un ejemplo de entrada con eof")
 inicio = 0
+avance = 0
 tamano_buffer = 10
 buffer = cargar_buffer(entrada, inicio, tamano_buffer)
+print(buffer)
 procesar_buffer(buffer)
